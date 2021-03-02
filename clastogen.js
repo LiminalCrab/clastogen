@@ -1,5 +1,7 @@
 function genToken(inStream){
-    let vrtStr = inStream.trim().split('\n')
+    let vrtStream = inStream.split("\n");
     let symbols = [];
-    console.log(vrtStr)
+    console.log(vrtStream);
+    symbols.push(vrtStream);
+    console.log(symbols.length);
 }
