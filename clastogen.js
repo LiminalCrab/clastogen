@@ -1,5 +1,5 @@
 function genToken(inStream){
-    let splStr = inStream.trim().split('\n')
+    let vrtStr = inStream.trim().split('\n')
     let symbols = [];
-    console.log(splStr)
+    console.log(vrtStr)
 }
