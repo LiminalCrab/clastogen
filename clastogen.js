@@ -13,5 +13,6 @@ function genToken(inStream){
             } else {
                 console.log("Failure.")
         }
+        console.log("Total meaningful symbols:", symbols[index].length)
     }
 }
