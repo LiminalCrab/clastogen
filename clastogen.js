@@ -1,15 +1,13 @@
 // Need to figure out what I will use to identify new tokens.
-// Lexer?
-
-
 function genToken(inStream){
-        let vrtStream = inStream.split('');
+        let regr = /{\$([^\$]+)\$}/
+        let vrtStream = inStream.match(regr);
         let symbols = [];
-        console.log("vrtStream:", vrtStream);
+        console.log("vrtStream: Extracting meaningful symbols", vrtStream);
 
         for(index = 0; index < vrtStream.length; index++){
             console.log(vrtStream[index]);
-            if (vrtStream[index].match("T")){
+            if (vrtStream[index]){
                 console.log(`Assigning: ${vrtStream[index].length} meaningful symbols to array.`);
                 symbols.push(vrtStream[index]);
             } else {
