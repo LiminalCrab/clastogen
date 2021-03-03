@@ -1,22 +1,22 @@
 //Stage 1
-let symbols = [];
-let regr = /{\$([^\$]+)\$}/
-
 
 function genToken(inStream){
-        let vrtStream = inStream.match(regr);
-        console.log("vrtStream: Extracting meaningful symbols", vrtStream);
-    
-        for(index = 0; index < vrtStream.length; index++){
-            console.log(vrtStream[index]);
-            if (vrtStream[index]){
-                console.log(`Assigning: ${vrtStream[index].length} meaningful symbols to array.`);
-                symbols.push(vrtStream[index]);
-            } else {
-                console.log("Failure.")
-        }
-    }
+        let regr = RegExp(/{\$([^\$]+)\$}/, 'g')
+        let array;
+        let symbols = [];
+        console.log("clastogen: Extracting meaningful symbols from string: ", inStream);
 
-    console.log("Total meaningful symbols:", symbols.length);
-    console.log(symbols);
+        while((array = regr.exec(inStream)) !== null){
+            symbols.push(array)
+            console.log(`Meaningful symbol: ${array[0]} found. Next starts at ${regr.lastIndex}`)
+        }
+
+        for(index = 0; index < symbols.length; index++){
+            if(symbols[index]){
+                console.log(` Assigned: ${symbols[index].length} meaningful symbols to array`)
+            } else {
+                console.log("There are no meaningful symbols to assign.")
+            }
+            return symbols;
+        }
 }
