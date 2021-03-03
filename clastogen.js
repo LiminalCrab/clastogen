@@ -1,8 +1,9 @@
 //Stage 1
+let symbols = [];
+let regr = RegExp(/{\$([^\$]+)\$}/, 'g')
+
 function genToken(inStream){
-    let regr = RegExp(/{\$([^\$]+)\$}/, 'g')
     let array;
-    let symbols = [];
     let vrtStream = inStream.trim();
     console.log("Extracting meaningful symbols from string: ", vrtStream);
 
@@ -17,6 +18,12 @@ function genToken(inStream){
         } else {
             console.log("There are no meaningful symbols to assign.")
         }
-        return symbols;
+        return classify(symbols);
     }
-} // end of genToken
+
+
+ function classify(data){
+        console.log(`classify ${symbols}`)
+    }
+}
+
