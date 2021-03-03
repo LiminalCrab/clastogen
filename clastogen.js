@@ -1,22 +1,27 @@
 //Stage 1
 
-function genToken(inStream){
-        let regr = RegExp(/{\$([^\$]+)\$}/, 'g')
-        let array;
-        let symbols = [];
-        console.log("clastogen: Extracting meaningful symbols from string: ", inStream);
+function clastogen(data){ 
+    genToken("{$Hello World!$} We are so happy to {$ See You! $}");
+    function genToken(inStream){
+            let regr = RegExp(/{\$([^\$]+)\$}/, 'g')
+            let array;
+            let symbols = [];
+            let vrtStream = inStream.trim();
+            console.log("Extracting meaningful symbols from string: ", vrtStream);
 
-        while((array = regr.exec(inStream)) !== null){
-            symbols.push(array)
-            console.log(`Meaningful symbol: ${array[0]} found. Next starts at ${regr.lastIndex}`)
-        }
-
-        for(index = 0; index < symbols.length; index++){
-            if(symbols[index]){
-                console.log(` Assigned: ${symbols[index].length} meaningful symbols to array`)
-            } else {
-                console.log("There are no meaningful symbols to assign.")
+            while((array = regr.exec(vrtStream)) !== null){
+                symbols.push(array)
+                console.log(`Meaningful symbol: ${array[0]} found. Next starts at ${regr.lastIndex}`)
             }
-            return symbols;
-        }
-}
+
+            for(index = 0; index < symbols.length; index++){
+                if(symbols[index]){
+                    console.log(`Assigned: ${symbols[index].length} meaningful symbols to array`)
+                } else {
+                    console.log("There are no meaningful symbols to assign.")
+                }
+                return console.log(symbols);
+            }
+    } // end of genToken
+
+} // end of clastoge n
