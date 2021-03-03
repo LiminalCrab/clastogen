@@ -34,19 +34,7 @@ function genToken(inStream){
                 console.log("false")
             }
         
-        }
-     
-       
-
-        /*
-        for(index =0; index < symbols.length; index++){
-            if(symbols[index] == symbols[index].toUpperCase){
-                console.log("Meaingful symbol classified as directory.")
-            } else {
-                console.log("Meainingful symbol is not a directory.")
-            }
-        }
-    */         
+        }    
     }
 }
 
