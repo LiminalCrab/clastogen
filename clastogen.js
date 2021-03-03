@@ -22,7 +22,7 @@ function genToken(inStream){
     }
 
 
- function classify(data){
+    function classify(data){
         console.log(`classify ${symbols}`)
     }
 }
