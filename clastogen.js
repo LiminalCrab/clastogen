@@ -1,10 +1,12 @@
-// Need to figure out what I will use to identify new tokens.
-function genToken(inStream){
-        let regr = /{\$([^\$]+)\$}/
-        let vrtStream = inStream.match(regr);
-        let symbols = [];
-        console.log("vrtStream: Extracting meaningful symbols", vrtStream);
+//Stage 1
+let symbols = [];
+let regr = /{\$([^\$]+)\$}/
 
+
+function genToken(inStream){
+        let vrtStream = inStream.match(regr);
+        console.log("vrtStream: Extracting meaningful symbols", vrtStream);
+    
         for(index = 0; index < vrtStream.length; index++){
             console.log(vrtStream[index]);
             if (vrtStream[index]){
@@ -13,6 +15,8 @@ function genToken(inStream){
             } else {
                 console.log("Failure.")
         }
-        console.log("Total meaningful symbols:", symbols[index].length)
     }
+
+    console.log("Total meaningful symbols:", symbols.length);
+    console.log(symbols);
 }
