@@ -1,7 +1,6 @@
 //Stage 1
 
 function clastogen(data){ 
-    genToken("{$Hello World!$} We are so happy to {$ See You! $}");
     function genToken(inStream){
             let regr = RegExp(/{\$([^\$]+)\$}/, 'g')
             let array;
