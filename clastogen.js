@@ -26,16 +26,21 @@ function genToken(inStream){
         }
 
     function classify(data, index){
-        //symbols is data.
-        for(index = 0; index < symbols.length; index++){
-            //probably gonna have to use another regex for this tbh
-            if(symbols.find == symbols[index].toUpperCase){
-                console.log("true")
-            } else {
-                console.log("false")
+        console.log("Classify called", symbols)
+        //symbols is data
+        // first let's figure out if there is a symbol that is capitals only.
+
+        if(symbols.length > 0){ 
+            const isDirectory = symbols.find(el => /^[A-Z]+$/.test(el));
+            if(isDirectory){
+                console.log("DIRECTORY CANDIDATE:", isDirectory);
+            } else { 
+                console.log("Targeted symbol is not a directory.");
             }
-        
-        }    
-    }
+        } else {
+            console.log("No array data.")
+        }
+
+    }    
 }
 
