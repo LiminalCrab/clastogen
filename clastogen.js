@@ -27,24 +27,20 @@ function genToken(inStream){
 
     function classify(data, index){
         console.log("Classify called", symbols)
-        const isDirectory = symbols.find(el => /^[A-Z]+$/.test(el));
-        const isTime = symbols.find(el => /([01]?[0-9]|2[0-3]):[0-5][0-9]/.test(el));
-        const isName = symbols.find(el => /[A-Z]+[a-z]+$/.test(el));; 
         //symbols is data
+        const isTitle = symbols.find(el => /^[A-Z]+$/.test(el));
+        const isTime = symbols.find(el => /([01]?[0-9]|2[0-3]):[0-5][0-9]/.test(el));
+        const isObject = symbols.find(el => /[A-Z]+[a-z]+$/.test(el));; 
         // first let's figure out if there is a symbol that is capitals only.
 
-        if(symbols.length > 0){ 
-            switch(isDirectory){
-                case true:
-                    console.log(`DIRECTORY CANDIDATE LOCATED: ${isDirectory}`)
-                case false: 
-                    console.log("No directory candidate located, moving on.")
-            }
-            
-        } else {
-            console.log("No array data.")
-        }
+        console.log(`Symbol matches title candidate: ${isTitle}`);
 
+        if(isTitle){
+            TITLE = isTitle;
+            console.log(`TITLE CLASSIFIED: ${TITLE}`)
+        } else {
+            console.log("No title candidate match, continuing...")
+        }
     }    
 }
 
