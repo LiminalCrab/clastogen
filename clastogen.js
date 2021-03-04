@@ -14,18 +14,16 @@ function genToken(inStream){
         console.log(`Meaningful symbol: ${array[0]} found and assigned. Next starts at ${regr.lastIndex}.`)
         symbols.push(array)
     }
-    //So far the 0 index of the arrays contain the {$ $} tag, I need to remove these elements from the array.
-    for(index = 0; index < symbols.length; index++){
-        if(symbols[index]){
-            symbols[index].slice(0, 1)
+    if(symbols.length > 0){ 
+        for(index = 0; index < symbols.length; index++){
+            symbols[index].splice(0, 1);
             console.log(`${symbols[index].length} meaningful symbols currently indexed.`);
             console.log(symbols);
-
+            }// end for
+        return classify(symbols); 
         } else {
-            console.log("There are no meaningful symbols to assign.")
+            console.log("no elements in array");
         }
-        return classify(symbols);
-    }
 
     function classify(data, index){
         //symbols is data.
