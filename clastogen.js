@@ -1,6 +1,6 @@
-let DIRECTORY;
+let TITLE;
 let TIME;
-let NAME;
+let OBJECT; // Person, Place, Thing, delineated by a capital letter.
 
 let symbols = [];
 let regr = RegExp(/{\$([^\$]+)\$}/, 'g')
@@ -27,16 +27,20 @@ function genToken(inStream){
 
     function classify(data, index){
         console.log("Classify called", symbols)
+        const isDirectory = symbols.find(el => /^[A-Z]+$/.test(el));
+        const isTime = symbols.find(el => /([01]?[0-9]|2[0-3]):[0-5][0-9]/.test(el));
+        const isName = symbols.find(el => /[A-Z]+[a-z]+$/.test(el));; 
         //symbols is data
         // first let's figure out if there is a symbol that is capitals only.
 
         if(symbols.length > 0){ 
-            const isDirectory = symbols.find(el => /^[A-Z]+$/.test(el));
-            if(isDirectory){
-                console.log("DIRECTORY CANDIDATE:", isDirectory);
-            } else { 
-                console.log("Targeted symbol is not a directory.");
+            switch(isDirectory){
+                case true:
+                    console.log(`DIRECTORY CANDIDATE LOCATED: ${isDirectory}`)
+                case false: 
+                    console.log("No directory candidate located, moving on.")
             }
+            
         } else {
             console.log("No array data.")
         }
