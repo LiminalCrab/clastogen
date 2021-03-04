@@ -35,10 +35,20 @@ function clastogen(inStream){
 
         if(isTitle){
             TITLE = isTitle;
-            console.log(`Classifed symbol as Title: ${TITLE}`)
-        } else {
-            console.log("No title candidate match, continuing...")
-        }
+            console.log(`Classifed symbol as Title: ${TITLE}`) } 
+        else {
+            console.log("No title candidate match, continuing...") }
+        if(isTime){
+            TIME = isTime;
+            console.log(`Classified symbol as Time: ${TIME}`) } 
+        else {
+            console.log("No time candidate match, continuing...") }
+        if(isObject){
+            OBJECT = isObject;
+            console.log(`Classified symbol as Object: ${OBJECT}`) }
+        else { 
+            console.log("No OBJECT candidate match, continuing...") }
+            
     }    
 }
 
