@@ -11,13 +11,16 @@ function genToken(inStream){
     console.log("Extracting meaningful symbols from string: ", vrtStream);
 
     while((array = regr.exec(vrtStream)) !== null){
+        console.log(`Meaningful symbol: ${array[0]} found and assigned. Next starts at ${regr.lastIndex}.`)
         symbols.push(array)
-        console.log(`Meaningful symbol: ${array[0]} found. Next starts at ${regr.lastIndex}`)
     }
-
+    //So far the 0 index of the arrays contain the {$ $} tag, I need to remove these elements from the array.
     for(index = 0; index < symbols.length; index++){
         if(symbols[index]){
-            console.log(`Assigned: ${symbols[index].length} meaningful symbols to array`)
+            symbols[index].slice(0, 1)
+            console.log(`${symbols[index].length} meaningful symbols currently indexed.`);
+            console.log(symbols);
+
         } else {
             console.log("There are no meaningful symbols to assign.")
         }
