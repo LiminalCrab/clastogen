@@ -5,7 +5,7 @@ let OBJECT; // Person, Place, Thing, delineated by a capital letter.
 let symbols = [];
 let regr = RegExp(/{\$([^\$]+)\$}/, 'g')
 
-function genToken(inStream){
+function clastogen(inStream){
     let array;
     let vrtStream = inStream.trim();
     console.log("Extracting meaningful symbols from string: ", vrtStream);
@@ -17,16 +17,14 @@ function genToken(inStream){
     if(symbols.length > 0){ 
         for(index = 0; index < symbols.length; index++){
             symbols[index].splice(0, 1);
-            console.log(`${symbols[index].length} meaningful symbols currently indexed.`);
-            console.log(symbols);
-            }// end for
+            }
         return classify(symbols); 
         } else {
             console.log("no elements in array");
         }
 
     function classify(data, index){
-        console.log("Classify called", symbols)
+        console.log(`${symbols.length} meaningful symbols in array.`)
         //symbols is data
         const isTitle = symbols.find(el => /^[A-Z]+$/.test(el));
         const isTime = symbols.find(el => /([01]?[0-9]|2[0-3]):[0-5][0-9]/.test(el));
@@ -37,7 +35,7 @@ function genToken(inStream){
 
         if(isTitle){
             TITLE = isTitle;
-            console.log(`TITLE CLASSIFIED: ${TITLE}`)
+            console.log(`Classifed symbol as Title: ${TITLE}`)
         } else {
             console.log("No title candidate match, continuing...")
         }
