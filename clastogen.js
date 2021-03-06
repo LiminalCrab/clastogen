@@ -29,18 +29,18 @@ function clastogen(inStream){
         //symbols is data
         const isTitle = symbols.find(el => /^[A-Z]+$/.test(el));
         const isTime = symbols.find(el => /([01]?[0-9]|2[0-3]):[0-5][0-9]/.test(el));
-        const isObject = symbols.find(el => /[A-Z]+[a-z]+$/.test(el));; 
+        const isObject = symbols.find(el => /[A-Z]+[a-z]+$/.test(el));
 
         console.log(`Symbol matches title candidate: ${isTitle}`);
 
         if(isTitle){
             TITLE = isTitle;
-            console.log(`Classifed symbol as Title: ${TITLE}`) } 
+            console.log(`Classifed symbol as Title: ${TITLE}`) }
         else {
             console.log("No title candidate match, continuing...") }
         if(isTime){
             TIME = isTime;
-            console.log(`Classified symbol as Time: ${TIME}`) } 
+            console.log(`Classified symbol as Time: ${TIME}`) }
         else {
             console.log("No time candidate match, continuing...") }
         if(isObject){
