@@ -3,6 +3,7 @@ let TIME;
 let OBJECT; // Person, Place, Thing, delineated by a capital letter.
 
 let symbols = [];
+let classified = [];
 let regr = RegExp(/{\$([^\$]+)\$}/, 'g')
 
 function clastogen(inStream){
@@ -35,20 +36,24 @@ function clastogen(inStream){
 
         if(isTitle){
             TITLE = isTitle;
+            classified.push(TITLE);
             console.log(`Classifed symbol as Title: ${TITLE}`) }
         else {
             console.log("No title candidate match, continuing...") }
         if(isTime){
             TIME = isTime;
+            classified.push(TIME); // what if int? 
             console.log(`Classified symbol as Time: ${TIME}`) }
         else {
             console.log("No time candidate match, continuing...") }
         if(isObject){
             OBJECT = isObject;
+            classified.push(OBJECT);
             console.log(`Classified symbol as Object: ${OBJECT}`) }
         else { 
             console.log("No OBJECT candidate match, continuing...") }
-            
+
+        return console.log("CLASSIFIED:", classified);
     }    
 }
 
